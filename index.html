@@ -19,19 +19,106 @@
     body {
         margin: 0;
         padding: 0;
-    }
-
-    body * {
-        color: white;
+        -webkit-transform: translate3d(0, 0, 0);
+        background-color: black;
     }
 
     section {
         height: 100vh;
     }
 
+    /*! locomotive-scroll v4.1.3 | MIT License | https://github.com/locomotivemtl/locomotive-scroll */
+    html.has-scroll-smooth {
+        overflow: hidden;
+    }
+
+    html.has-scroll-dragging {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+
+    .has-scroll-smooth body {
+        overflow: hidden;
+    }
+
+    .has-scroll-smooth [data-scroll-container] {
+        min-height: 100vh;
+    }
+
+    [data-scroll-direction="horizontal"] [data-scroll-container] {
+        height: 100vh;
+        display: inline-block;
+        white-space: nowrap;
+    }
+
+    [data-scroll-direction="horizontal"] [data-scroll-section] {
+        display: inline-block;
+        vertical-align: top;
+        white-space: nowrap;
+        height: 100%;
+    }
+
+    .c-scrollbar {
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 11px;
+        height: 100%;
+        transform-origin: center right;
+        transition: transform 0.3s, opacity 0.3s;
+        opacity: 0;
+    }
+
+    .c-scrollbar:hover {
+        transform: scaleX(1.45);
+    }
+
+    .c-scrollbar:hover,
+    .has-scroll-scrolling .c-scrollbar,
+    .has-scroll-dragging .c-scrollbar {
+        opacity: 1;
+    }
+
+    [data-scroll-direction="horizontal"] .c-scrollbar {
+        width: 100%;
+        height: 10px;
+        top: auto;
+        bottom: 0;
+        transform: scaleY(1);
+    }
+
+    [data-scroll-direction="horizontal"] .c-scrollbar:hover {
+        transform: scaleY(1.3);
+    }
+
+    .c-scrollbar_thumb {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: black;
+        opacity: 0.5;
+        width: 7px;
+        border-radius: 10px;
+        margin: 2px;
+        cursor: -webkit-grab;
+        cursor: grab;
+    }
+
+    .has-scroll-dragging .c-scrollbar_thumb {
+        cursor: -webkit-grabbing;
+        cursor: grabbing;
+    }
+
+    [data-scroll-direction="horizontal"] .c-scrollbar_thumb {
+        right: auto;
+        bottom: 0;
+    }
+
     .fadein {
         opacity: 0;
-        transition: opacity 2s;
+        transition: opacity 1s;
     }
 
     .scroll-class {
@@ -40,70 +127,161 @@
 </style>
 
 <body>
-    <header class="w-screen h-16 bg-black fixed top-0">
+    <a href="https://github.com/Hello9999901/ByranTK-Alpha" class="github-corner" aria-label="View source on GitHub"
+        target="_blank"><svg width="80" height="80" viewBox="0 0 250 250"
+            style="fill:#fff; color:#151513; position: absolute; top: 0; border: 0; right: 0;" aria-hidden="true">
+            <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
+            <path
+                d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
+                fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
+            <path
+                d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
+                fill="currentColor" class="octo-body"></path>
+        </svg></a>
+    <style>
+        .github-corner:hover .octo-arm {
+            animation: octocat-wave 560ms ease-in-out
+        }
 
-    </header>
-    <div class="w-screen h-screen z-0 bg-black border-none">
-        <video autoplay muted loop class="">
-            <source src="video.mp4">
-        </video>
-    </div>
-    <div class="w-screen h-auto bg-black flex flex-grow flex-col justify-center items-center">
-        <div class="max-w-5xl" data-scroll-container>
+        @keyframes octocat-wave {
+
+            0%,
+            100% {
+                transform: rotate(0)
+            }
+
+            20%,
+            60% {
+                transform: rotate(-25deg)
+            }
+
+            40%,
+            80% {
+                transform: rotate(10deg)
+            }
+        }
+
+        @media (max-width:500px) {
+            .github-corner:hover .octo-arm {
+                animation: none
+            }
+
+            .github-corner .octo-arm {
+                animation: octocat-wave 560ms ease-in-out
+            }
+        }
+    </style>
+    <div class="bg-black w-screen h-auto flex flex-col justify-center items-center main" data-scroll-container>
+        <section data-scroll-section>
+            <video autoplay muted loop class="w-screen h-screen bg-black">
+                <source src="video.mp4">
+            </video>
+        </section>
+        <div class="max-w-5xl">
             <section data-scroll-section>
-                <h1 class="font-sans font-extrabold italic text-5xl py-5" data-scroll data-scroll-speed="1">
-                    "All the keys you need and no more."
-                </h1>
-                <h1 class="font-sans font-light italic text-2xl py-5 fadein" data-scroll data-scroll-speed="2"
+                <div>
+                    <h1 class="font-mono text-white font-bold italic text-5xl py-5" data-scroll data-scroll-speed="1">
+                        "All the keys you need and no more."
+                    </h1>
+                    <h1 class="font-mono text-white font-light italic text-2xl py-5 fadein" data-scroll
+                        data-scroll-speed="2" data-scroll-class="scroll-class">
+                        The ByranTK-Alpha is an 80 key custom mechanical keyboard, designed to be made with any
+                        material.
+                    </h1>
+                </div>
+            </section>
+            <section data-scroll-section>
+                <div>
+                    <h1 class="font-mono text-white font-extrabold italic text-4xl pt-7 underline underline-offset-3"
+                        data-scroll data-scroll-speed="1">
+                        What is it
+                    </h1>
+                    <p class="font-mono text-white font-light italic text-xl fadein" data-scroll
+                        data-scroll-class="scroll-class" data-scroll-speed="2">
+                        The ByranTK-Alpha is an ongoing open-source keyboard project. It is extremely simple and
+                        utilizes a
+                        nice!nano from Nice Keyboards as the MCU (nrf52840). The battery life is estimated to be around
+                        3
+                        months
+                        of continuous
+                        usage (varies extremely depending on battery capacity, tested with 500mah battery from
+                        Adafruit).
+                        The
+                        keyboard is designed in KiCAD and FreeCAD, with the renders made with Blender.
+                    </p>
+                </div>
+            </section>
+            <section data-scroll-section>
+                <div>
+                    <h1 class="font-mono text-white font-extrabold italic text-4xl pt-7 underline underline-offset-3"
+                        data-scroll data-scroll-speed="-1" data-scroll-direction="horizontal">
+                        Features:
+                    </h1>
+                    <ul class="list-disc font-mono text-white font-light italic text-xl ml-8 fadein" data-scroll
+                        data-scroll-class="scroll-class" data-scroll-speed="1" data-scroll-direction="horizontal">
+                        <li>ZMK Firmware</li>
+                        <li>Pro Micro Form Factor*</li>
+                        <li>Wireless First Design</li>
+                        <li>Split Spacebar</li>
+                        <li>Low Profile (relative to other keyboards)</li>
+                        <li>Hotswap Sockets</li>
+                        <li>South facing (supports cherry profile)</li>
+                        <li>Exploded 75% (ish) layout</li>
+                        <li>Highly Customizable</li>
+                    </ul>
+                </div>
+            </section>
+            <section data-scroll-section>
+                <div>
+                    <h1 class="font-mono text-white font-extrabold italic text-4xl pt-7 underline underline-offset-3"
+                        data-scroll data-scroll-speed="1">
+                        Why?
+                    </h1>
+                    <p class="font-mono text-white font-light italic text-xl fadein" data-scroll
+                        data-scroll-class="scroll-class" data-scroll-speed="2">
+                        Because nobody has done such thing yet. I have always wanted a simple-looking, customizable
+                        (software-wise and hardware-wise), exploded 75% layout keyboard. In addition, it had to be under
+                        a
+                        certain price point. I estimate for it to cost less than 100 dollars for all the parts and all
+                        the
+                        machining, though that is subject to change. If you want CNC alu, then that'll cost you a couple
+                        cold
+                        hard Benjamins (tldr; just because).
+                    </p>
+                </div>
+            </section>
+            <section data-scroll-section>
+                <div class="bg-black h-52" data-scroll></div>
+                <footer class="h-52 bg-black font-mono text-white border-t fadein" data-scroll
                     data-scroll-class="scroll-class">
-                    The ByranTK-Alpha is an 80 key custom mechanical keyboard, designed to be made with any material.
-                </h1>
+                    <h1 class="mb-5 font-normal text-xl" data-scroll>
+                        <span class="font-black">ByranTK-Alpha</span> V1.1 - Created by Byran H
+                    </h1>
+                    <h3 data-scroll>Website written in HTML/Tailwind CSS/JS with parallax effects from locomotive.</h3>
+                    <h3 data-scroll>Open Source Hardware (OSH) under the MIT and GPLv3 license (different parts)</h3>
+                    <br>
+                    <h3 data-scroll>*The nice!nano v2 is used in this design. It has 3 extra pins in the center of the
+                        PCB, one of which the ByranTK-Alpha utilizes</h3>
+                    <h3 data-scroll class="mt-5 text-lg font-bold">Resources:</h3>
+                    <div class="w-max flex flex-col flex-wrap mb-5 text-blue-200 underline underline-offset-2"
+                        data-scroll>
+                        <a href="https://github.com/Hello9999901/ByranTK-Alpha/tree/main/firmware" class="pl-0 py-1"
+                            data-scroll data-scroll-delay="0.1">Firmware</a>
+                        <a href="https://github.com/Hello9999901/ByranTK-Alpha/tree/main/case" class="pl-4 py-1"
+                            data-scroll data-scroll-delay="0.15">Case</a>
+                        <a href="https://github.com/Hello9999901/ByranTK-Alpha/tree/main/pcb" class="pl-8 py-1"
+                            data-scroll data-scroll-delay="0.2">Printed
+                            Circuit Board</a>
+                        <a href="https://github.com/Hello9999901/ByranTK-Alpha/releases/tag/v1.1" class="pl-12 py-1"
+                            data-scroll data-scroll-delay="0.25">PCB
+                            Production File</a>
+                        <a href="https://github.com/Hello9999901/ByranTK-Alpha/tree/main/bom" class="pl-16 py-1"
+                            data-scroll data-scroll-delay="0.3">BOM/IBOM/POS</a>
+                    </div>
+                </footer>
             </section>
-            <section data-scroll-section>
-                <h1 class="font-sans font-extrabold italic text-4xl pt-7 underline underline-offset-3" data-scroll>
-                    What is it
-                </h1>
-                <p class="font-sans font-light italic text-xl fadein" data-scroll data-scroll-class="scroll-class">
-                    The ByranTK-Alpha is an ongoing open-source keyboard project. It is extremely simple and utilizes a
-                    nice!nano from Nice Keyboards as the MCU (nrf52840). The battery life is estimated to be around 3
-                    months
-                    of continuous
-                    usage (varies extremely depending on battery capacity, tested with 500mah battery from Adafruit).
-                    The
-                    keyboard is designed in KiCAD and FreeCAD, with the renders made with Blender.
-                </p>
-            </section>
-            <section data-scroll-section>
-                <h1 class="font-sans font-extrabold italic text-4xl pt-7 underline underline-offset-3" data-scroll>
-                    Features:
-                </h1>
-                <ul class="list-disc font-sans font-light italic text-xl ml-8" data-scroll>
-                    <li>ZMK Firmware</li>
-                    <li>Pro Micro Form Factor*</li>
-                    <li>Wireless First Design</li>
-                    <li>Split Spacebar</li>
-                    <li>Low Profile (relative to other keyboards)</li>
-                    <li>Hotswap Sockets</li>
-                    <li>South facing (supports cherry profile)</li>
-                    <li>Exploded 75% (ish) layout</li>
-                    <li>Highly Customizable</li>
-                </ul>
-            </section>
-            <section data-scroll-section>
-                <h1 class="font-sans font-extrabold italic text-4xl pt-7 underline underline-offset-3" data-scroll>
-                    Why?
-                </h1>
-                <p class="font-sans font-light italic text-xl" data-scroll>
-                    Because nobody has done such thing yet. I have always wanted a simple-looking, customizable
-                    (software-wise and hardware-wise), exploded 75% layout keyboard. In addition, it had to be under a
-                    certain price point. I estimate for it to cost less than 100 dollars for all the parts and all the
-                    machining, though that is subject to change. If you want CNC alu, then that'll cost you a couple
-                    cold
-                    hard Benjamins (tldr; just because).
-                </p>
-            </section>
-            <div class="bg-black h-52"></div>
         </div>
+    </div>
     </div>
     <footer>
 
@@ -114,6 +292,7 @@
         el: document.querySelector('[data-scroll-container]'),
         smooth: true,
         repeat: true,
+        direction: "vertical",
     });
 </script>
 
