@@ -257,7 +257,9 @@
                     <h1 class="mb-5 font-normal text-xl" data-scroll>
                         <span class="font-black">ByranTK-Alpha</span> V1.1 - Created by Byran H
                     </h1>
-                    <h3 data-scroll>Website written in HTML/Tailwind CSS/JS with parallax effects from locomotive.</h3>
+                    <h3 data-scroll>Website written in HTML/<a href="https://tailwindcss.com" class="text-blue-200">Tailwind CSS</a>/JS with
+                        parallax effects using <a
+                            href="https://github.com/locomotivemtl/locomotive-scroll" class="text-blue-200">locomotive-scroll</a>.</h3>
                     <h3 data-scroll>Open Source Hardware (OSH) under the MIT and GPLv3 license (different parts)</h3>
                     <br>
                     <h3 data-scroll>*The nice!nano v2 is used in this design. It has 3 extra pins in the center of the
@@ -292,6 +294,7 @@
         el: document.querySelector('[data-scroll-container]'),
         smooth: true,
         repeat: true,
+        multiplier: 0.5,
         direction: "vertical",
     });
 </script>
