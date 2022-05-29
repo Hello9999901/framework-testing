@@ -1,0 +1,121 @@
+<!doctype html>
+<html class="overflow-x-hidden">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.min.js"></script>
+</head>
+<style>
+    ::-webkit-scrollbar {
+        background: #454545;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #232323;
+    }
+
+    body {
+        margin: 0;
+        padding: 0;
+    }
+
+    body * {
+        color: white;
+    }
+
+    section {
+        height: 100vh;
+    }
+
+    .fadein {
+        opacity: 0;
+        transition: opacity 2s;
+    }
+
+    .scroll-class {
+        opacity: 1;
+    }
+</style>
+
+<body>
+    <header class="w-screen h-16 bg-black fixed top-0">
+
+    </header>
+    <div class="w-screen h-screen z-0 bg-black border-none">
+        <video autoplay muted loop class="">
+            <source src="video.mp4">
+        </video>
+    </div>
+    <div class="w-screen h-auto bg-black flex flex-grow flex-col justify-center items-center">
+        <div class="max-w-5xl" data-scroll-container>
+            <section data-scroll-section>
+                <h1 class="font-sans font-extrabold italic text-5xl py-5" data-scroll data-scroll-speed="1">
+                    "All the keys you need and no more."
+                </h1>
+                <h1 class="font-sans font-light italic text-2xl py-5 fadein" data-scroll data-scroll-speed="2"
+                    data-scroll-class="scroll-class">
+                    The ByranTK-Alpha is an 80 key custom mechanical keyboard, designed to be made with any material.
+                </h1>
+            </section>
+            <section data-scroll-section>
+                <h1 class="font-sans font-extrabold italic text-4xl pt-7 underline underline-offset-3" data-scroll>
+                    What is it
+                </h1>
+                <p class="font-sans font-light italic text-xl fadein" data-scroll data-scroll-class="scroll-class">
+                    The ByranTK-Alpha is an ongoing open-source keyboard project. It is extremely simple and utilizes a
+                    nice!nano from Nice Keyboards as the MCU (nrf52840). The battery life is estimated to be around 3
+                    months
+                    of continuous
+                    usage (varies extremely depending on battery capacity, tested with 500mah battery from Adafruit).
+                    The
+                    keyboard is designed in KiCAD and FreeCAD, with the renders made with Blender.
+                </p>
+            </section>
+            <section data-scroll-section>
+                <h1 class="font-sans font-extrabold italic text-4xl pt-7 underline underline-offset-3" data-scroll>
+                    Features:
+                </h1>
+                <ul class="list-disc font-sans font-light italic text-xl ml-8" data-scroll>
+                    <li>ZMK Firmware</li>
+                    <li>Pro Micro Form Factor*</li>
+                    <li>Wireless First Design</li>
+                    <li>Split Spacebar</li>
+                    <li>Low Profile (relative to other keyboards)</li>
+                    <li>Hotswap Sockets</li>
+                    <li>South facing (supports cherry profile)</li>
+                    <li>Exploded 75% (ish) layout</li>
+                    <li>Highly Customizable</li>
+                </ul>
+            </section>
+            <section data-scroll-section>
+                <h1 class="font-sans font-extrabold italic text-4xl pt-7 underline underline-offset-3" data-scroll>
+                    Why?
+                </h1>
+                <p class="font-sans font-light italic text-xl" data-scroll>
+                    Because nobody has done such thing yet. I have always wanted a simple-looking, customizable
+                    (software-wise and hardware-wise), exploded 75% layout keyboard. In addition, it had to be under a
+                    certain price point. I estimate for it to cost less than 100 dollars for all the parts and all the
+                    machining, though that is subject to change. If you want CNC alu, then that'll cost you a couple
+                    cold
+                    hard Benjamins (tldr; just because).
+                </p>
+            </section>
+            <div class="bg-black h-52"></div>
+        </div>
+    </div>
+    <footer>
+
+    </footer>
+</body>
+<script>
+    const scroller = new LocomotiveScroll({
+        el: document.querySelector('[data-scroll-container]'),
+        smooth: true,
+        repeat: true,
+    });
+</script>
+
+
+</html>

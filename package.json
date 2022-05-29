@@ -1,0 +1,22 @@
+{
+  "name": "tailwind-css",
+  "version": "1.0.0",
+  "description": "tailwind tests",
+  "main": "tailwind.config.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hello9999901/tailwind-css.git"
+  },
+  "author": "Hello9999901",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Hello9999901/tailwind-css/issues"
+  },
+  "homepage": "https://github.com/Hello9999901/tailwind-css#readme",
+  "dependencies": {
+    "locomotive-scroll": "^4.1.4"
+  }
+}
