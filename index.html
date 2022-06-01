@@ -173,7 +173,14 @@
     </style>
     <div class="bg-black w-screen h-auto flex flex-col justify-center items-center main" data-scroll-container>
         <section data-scroll-section>
-            <video autoplay muted loop class="w-screen h-screen bg-black">
+            <div onclick="unmute()">
+                <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48"
+                    class="fixed fill-white bottom-0 right-0 p-20">
+                    <path
+                        d="M15.5 30Q14.85 30 14.425 29.575Q14 29.15 14 28.5V19.5Q14 18.85 14.425 18.425Q14.85 18 15.5 18H22L29.45 10.55Q30.15 9.85 31.075 10.225Q32 10.6 32 11.6V36.4Q32 37.4 31.075 37.775Q30.15 38.15 29.45 37.45L22 30ZM29 15.6 23.35 21H17V27H23.35L29 32.45ZM22.95 24Z" />
+                </svg>
+            </div>
+            <video autoplay muted loop class="w-screen h-screen bg-black" id="video">
                 <source src="video.mp4">
             </video>
         </section>
@@ -257,9 +264,10 @@
                     <h1 class="mb-5 font-normal text-xl" data-scroll>
                         <span class="font-black">ByranTK-Alpha</span> V1.1 - Created by Byran H
                     </h1>
-                    <h3 data-scroll>Website written in HTML/<a href="https://tailwindcss.com" class="text-blue-200">Tailwind CSS</a>/JS with
-                        parallax effects using <a
-                            href="https://github.com/locomotivemtl/locomotive-scroll" class="text-blue-200">locomotive-scroll</a>.</h3>
+                    <h3 data-scroll>Website written in HTML/<a href="https://tailwindcss.com"
+                            class="text-blue-200">Tailwind CSS</a>/JS with
+                        parallax effects using <a href="https://github.com/locomotivemtl/locomotive-scroll"
+                            class="text-blue-200">locomotive-scroll</a>.</h3>
                     <h3 data-scroll>Open Source Hardware (OSH) under the MIT and GPLv3 license (different parts)</h3>
                     <br>
                     <h3 data-scroll>*The nice!nano v2 is used in this design. It has 3 extra pins in the center of the
@@ -297,6 +305,11 @@
         multiplier: 0.5,
         direction: "vertical",
     });
+    var vid = document.getElementById("video");
+
+    function unmute() {
+        vid.muted = false;
+    }
 </script>
 
 
