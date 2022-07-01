@@ -1,0 +1,61 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sticky</title>
+</head>
+
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        transition: 0.5s;
+    }
+</style>
+
+<body>
+    <div id="container" style="overflow-y: scroll; height: 100%;">
+        <div style="height: 100vh; position: relative; background-color: bisque;" id="one">
+            <div style="height: 400px; position: sticky; top: 0px; background-color: aqua;">
+                <span id="text1">Hello world, from section 1!</span>
+                <h1 id="num">
+
+                </h1>
+            </div>
+        </div>
+        <div style="height: 2000px; position: relative; background-color: forestgreen;" id="two">
+            <div style="height: 400px; position: sticky; top: 0px; background-color: deepskyblue;" id="three">
+                Hello world, from section 2!
+                <h1 id="num2">
+
+                </h1>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const target = document.getElementById("container");
+        const sub = document.getElementById("one");
+        document.getElementById("text1").style.fontSize = 100;
+        console.log(sub.clientHeight);
+        console.log(target.scrollTop);
+        console.log(target.scrollHeight);
+        console.log(window.innerHeight);
+        const updateImage = index => {
+            console.log(index);
+            document.getElementById("num").innerHTML = index;
+            document.getElementById("text1").style.fontSize = Math.abs(index)*145+20;
+        }
+        target.addEventListener('scroll', () => {
+            const scrollTop = target.scrollTop;
+            const maxScrollTop = sub.scrollHeight;
+            const scrollFraction = scrollTop / maxScrollTop;
+            updateImage(scrollFraction);
+            console.log("scrollTop: " + scrollTop + "\n" + "scrollHeight: " + sub.scrollHeight + "\n" + "fraction: " + scrollFraction + "\n");
+        });
+    </script>
+</body>
+
+</html>
